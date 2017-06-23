@@ -1,0 +1,7 @@
+<%= simple_form_for @movie do |f| %>
+  <div class="form_group">
+    <%= f.input :title, input_html: { class: "form-control" }%>
+    <%= f.input :description, input_html: { class: "form-control"}%>
+  </div>
+  <%= f.submit "提交", class: "btn btn-primary", data: { disable_with: "Submiting..."} %>
+<% end %>
