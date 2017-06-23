@@ -11,7 +11,7 @@
       <% @movies.each do |movie| %>
         <tr>
           <td><%= link_to(movie.title, movie_path(movie)) %></td>
-          <td><%= movie.description %></td>
+          <td><%= simple_format(movie.description) %></td>
           <td>
             <%= link_to("编辑", edit_movie_path(movie), class: "btn btn-primary btn-sm") %>
             <%= link_to("删除", movie_path(movie), class: "btn btn-warning btn-sm",
