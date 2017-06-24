@@ -4,14 +4,18 @@
   </div>
   <table class="table table-hover">
     <thead>
-      <th> 电影名称 </th>
-      <th> 简介 </th>
+      <tr>
+        <th> 电影名称 </th>
+        <th> 简介 </th>
+        <th> 创建者 </th>
+      </tr>
     </thead>
     <tbody>
       <% @movies.each do |movie| %>
         <tr>
           <td><%= link_to(movie.title, movie_path(movie)) %></td>
           <td><%= simple_format(movie.description) %></td>
+          <td><%= movie.user.email %></td>
           <td>
             <%= link_to("编辑", edit_movie_path(movie), class: "btn btn-primary btn-sm") %>
             <%= link_to("删除", movie_path(movie), class: "btn btn-warning btn-sm",
