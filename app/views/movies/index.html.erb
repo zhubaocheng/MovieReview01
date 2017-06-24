@@ -20,7 +20,7 @@
             <% if current_user && current_user == movie.user %>
               <%= link_to("编辑", edit_movie_path(movie), class: "btn btn-primary btn-sm") %>
               <%= link_to("删除", movie_path(movie), class: "btn btn-warning btn-sm",
-                           method: :delete, data: { confirm: "你确定删除吗？" }) %>
+                           method: :delete, data: { confirm: "你确定删除《"+movie.title+"》吗？" }) %>
             <% end %>
           </td>
         </tr>
