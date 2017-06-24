@@ -1,7 +1,8 @@
 <div class="col-md-12">
   <div class="group">
+    <%= link_to("写影评", new_movie_review_path(@movie), class: "btn btn-default pull-right")%>
     <% if current_user && current_user == @movie.user%>
-    <%= link_to("编辑电影", edit_movie_path(@movie), class: "btn btn-primary pull-right")%>
+      <%= link_to("编辑电影", edit_movie_path(@movie), class: "btn btn-primary pull-right")%>
     <% end %>
   </div>
   <h1><%= @movie.title %></h1>
