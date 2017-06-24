@@ -22,7 +22,7 @@ class MoviesController < ApplicationController
 
   def show
     @movie = Movie.find(params[:id])
-    @reviews = @movie.reviews.recent
+    @reviews = @movie.reviews.recent.paginate(:page => params[:page], :per_page => 5)
   end
 
   def edit
