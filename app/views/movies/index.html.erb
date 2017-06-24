@@ -17,9 +17,11 @@
           <td><%= simple_format(movie.description) %></td>
           <td><%= movie.user.email %></td>
           <td>
-            <%= link_to("编辑", edit_movie_path(movie), class: "btn btn-primary btn-sm") %>
-            <%= link_to("删除", movie_path(movie), class: "btn btn-warning btn-sm",
-                        method: :delete, data: { confirm: "你确定删除吗？" }) %>
+            <% if current_user && current_user == movie.user %>
+              <%= link_to("编辑", edit_movie_path(movie), class: "btn btn-primary btn-sm") %>
+              <%= link_to("删除", movie_path(movie), class: "btn btn-warning btn-sm",
+                           method: :delete, data: { confirm: "你确定删除吗？" }) %>
+            <% end %>
           </td>
         </tr>
       <% end %>
