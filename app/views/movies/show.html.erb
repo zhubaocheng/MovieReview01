@@ -9,7 +9,9 @@
         <%= link_to("收藏", join_movie_path(@movie), method: :post, class: "btn btn-default ")%>
       <% end %>
     </span>
-    <%= link_to("写影评", new_movie_review_path(@movie), class: "btn btn-default pull-right")%>
+    <% if current_user && current_user.is_member_of?(@movie) %>
+      <%= link_to("写影评", new_movie_review_path(@movie), class: "btn btn-default pull-right")%>
+    <% end %>
     <% if current_user && current_user == @movie.user%>
       <%= link_to("编辑电影", edit_movie_path(@movie), class: "btn btn-primary pull-right")%>
     <% end %>
