@@ -1,0 +1,24 @@
+<div class="col-md-12">
+  <h2>我收藏的电影</h2>
+  <table class="table table-nover">
+    <thead>
+      <tr>
+        <th>电影名称</th>
+        <th>简介</th>
+        <th>影评数量</th>
+        <th>更新时间</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @movies.each do |movie| %>
+        <tr>
+          <td><%= link_to(movie.title, movie_path(movie))%></td>
+          <td><%= movie.description %></td>
+          <td><%= movie.reviews.count %></td>
+          <td><%= movie.updated_at %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>
